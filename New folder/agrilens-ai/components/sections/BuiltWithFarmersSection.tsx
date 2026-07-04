@@ -1,0 +1,235 @@
+'use client';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import SectionReveal from '@/components/ui/SectionReveal';
+import AnimatedCounter from '@/components/ui/AnimatedCounter';
+
+const stats = [
+  {
+    value: 24,
+    suffix: '+',
+    label: 'Farmers Interviewed',
+    desc: 'Smallholder maize farmers across Kaduna, Niger, Kano, and Benue States',
+    icon: '👨‍🌾',
+    color: 'from-brand-green/10 to-brand-green/5',
+    border: 'border-brand-green/20',
+    numColor: 'text-brand-green',
+  },
+  {
+    value: 8,
+    suffix: '+',
+    label: 'Extension Officers Consulted',
+    desc: 'State agricultural development program officers providing field-level validation',
+    icon: '🧑‍💼',
+    color: 'from-amber-500/10 to-amber-500/5',
+    border: 'border-amber-400/25',
+    numColor: 'text-amber-600',
+  },
+  {
+    value: 30,
+    suffix: '+',
+    label: 'Research Papers Reviewed',
+    desc: 'Peer-reviewed literature on maize disease detection, AI diagnostics, and African agtech',
+    icon: '📄',
+    color: 'from-sky-500/10 to-sky-500/5',
+    border: 'border-sky-400/25',
+    numColor: 'text-sky-600',
+  },
+  {
+    value: 4,
+    suffix: '',
+    label: 'Diseases Researched',
+    desc: 'MSD, NCLB, Common Rust, and Healthy leaf. Broader crop coverage is planned for 2027 and beyond.',
+    icon: '🔬',
+    color: 'from-purple-500/10 to-purple-500/5',
+    border: 'border-purple-400/25',
+    numColor: 'text-purple-600',
+  },
+];
+
+const insights = [
+  {
+    finding: 'Farmers can\'t differentiate diseases visually',
+    impact: 'Drove the need for precise AI classification over simple detection',
+  },
+  {
+    finding: 'Treatment advice arrives too late to act',
+    impact: 'Shaped the offline-first, instant-response architecture',
+  },
+  {
+    finding: 'Literacy and language are real barriers',
+    impact: 'Led to voice guidance in Hausa, Yoruba, Igbo, and English',
+  },
+  {
+    finding: 'Farmers trust specificity over generality',
+    impact: 'Resulted in product-specific, dosage-precise treatment plans',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'I lost half my maize to NCLB last year because I thought it was just dry season stress. If I had known earlier, I could have saved the whole farm.',
+    name: 'Aliyu Ibrahim',
+    role: 'Smallholder Farmer, Kaduna State',
+    initials: 'AI',
+  },
+  {
+    quote: 'The extension officer comes once a month if we\'re lucky. By the time he arrives, the disease has spread to the whole field. I need help when I need it, not when he has time.',
+    name: 'Fatima Kwara',
+    role: 'Cooperative Farmer, Niger State',
+    initials: 'FK',
+  },
+  {
+    quote: 'I bought the wrong chemical twice. The shopkeeper did not know what disease it was either. If I had something that could just tell me the right answer, it would change everything for us.',
+    name: 'Emmanuel Okafor',
+    role: 'Maize Farmer, Benue State',
+    initials: 'EO',
+  },
+];
+
+function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-40px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      className={`relative bg-gradient-to-br ${stat.color} border ${stat.border} rounded-2xl p-7 overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}
+    >
+      {/* Background watermark */}
+      <div className="absolute -right-3 -bottom-3 text-7xl opacity-[0.06] pointer-events-none select-none">
+        {stat.icon}
+      </div>
+
+      <div className="relative z-10">
+        <div className="text-2xl mb-4">{stat.icon}</div>
+        <div className={`font-display font-black text-5xl ${stat.numColor} mb-1 leading-none`}>
+          <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+        </div>
+        <div className="font-semibold text-brand-text text-base mb-2">{stat.label}</div>
+        <p className="text-brand-text-muted text-sm leading-relaxed">{stat.desc}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function BuiltWithFarmersSection() {
+  return (
+    <section id="built-with-farmers" className="section-pad bg-brand-bg relative overflow-hidden">
+      {/* Subtle background grid */}
+      <div
+        className="absolute inset-0 opacity-[0.018]"
+        style={{
+          backgroundImage: 'linear-gradient(#2E7D32 1px, transparent 1px), linear-gradient(90deg, #2E7D32 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
+          <SectionReveal>
+            <div className="text-xs font-bold uppercase tracking-widest text-brand-green mb-3">
+              Discovery Research
+            </div>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-brand-text leading-tight mb-5">
+              Built <span className="text-brand-green">With</span> Farmers,<br />
+              Not Just <span className="text-brand-green">For</span> Them
+            </h2>
+            <p className="text-brand-text-muted text-lg leading-relaxed">
+              Every feature in AgriLens AI is shaped by real conversations, field research, and direct farmer feedback. Nothing was built on assumptions.
+            </p>
+          </SectionReveal>
+
+          <SectionReveal delay={0.15}>
+            <div className="bg-white border border-brand-border rounded-2xl p-7 shadow-card">
+              <div className="text-xs font-bold uppercase tracking-widest text-brand-text-muted mb-4">Research Methodology</div>
+              <p className="text-brand-text text-sm leading-relaxed mb-5">
+                Before designing AgriLens AI, we conducted product discovery interviews with maize farmers and agricultural stakeholders across Nigeria to understand how diseases are identified, how treatment decisions are made, and the barriers farmers face when accessing timely agricultural advice.
+              </p>
+              <p className="text-brand-text-muted text-sm leading-relaxed">
+                These insights revealed that many farmers rely on visual guesswork, struggle to differentiate diseases, and often receive treatment guidance too late. In many cases, they receive no guidance at all. These findings directly shaped every design decision in AgriLens AI.
+              </p>
+              <div className="mt-5 pt-5 border-t border-brand-border flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-brand-green" />
+                <span className="text-xs font-semibold text-brand-green">Early Product Discovery Research · Nigeria, 2025</span>
+              </div>
+            </div>
+          </SectionReveal>
+        </div>
+
+        {/* Stat cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          {stats.map((stat, i) => (
+            <StatCard key={stat.label} stat={stat} index={i} />
+          ))}
+        </div>
+
+        {/* Key insights: what we found, what we built */}
+        <SectionReveal>
+          <div className="bg-brand-deep-green rounded-3xl p-8 lg:p-10">
+            <div className="text-center mb-8">
+              <div className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-2">Key Research Insights</div>
+              <h3 className="font-display font-bold text-2xl text-white">What We Heard → What We Built</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {insights.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white/[0.06] border border-white/[0.1] rounded-2xl p-5 flex gap-4"
+                >
+                  <div className="flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center">
+                      <span className="text-brand-gold text-xs font-black">{i + 1}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-1">We heard:</div>
+                    <div className="text-white text-sm font-semibold mb-2">&ldquo;{item.finding}&rdquo;</div>
+                    <div className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-1">We built:</div>
+                    <div className="text-brand-gold/80 text-sm">{item.impact}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
+
+        {/* Testimonials */}
+        <SectionReveal className="mt-16 mb-6">
+          <div className="text-center">
+            <h3 className="font-display font-bold text-2xl text-brand-text mb-1">What Farmers Told Us</h3>
+            <p className="text-brand-text-muted text-sm">Representative quotes from product discovery interviews</p>
+          </div>
+        </SectionReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <SectionReveal key={t.name} delay={i * 0.1}>
+              <div className="bg-white border border-brand-border border-l-4 border-l-brand-green rounded-2xl p-6 hover:shadow-card-hover transition-all h-full flex flex-col">
+                <div className="text-4xl font-display text-brand-green-mid leading-none mb-3">&ldquo;</div>
+                <p className="text-brand-text text-sm leading-relaxed italic flex-1 mb-5">{t.quote}</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-brand-green-light flex items-center justify-center flex-shrink-0 font-bold text-brand-green text-xs">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-brand-text">{t.name}</div>
+                    <div className="text-xs text-brand-text-muted">{t.role}</div>
+                  </div>
+                </div>
+              </div>
+            </SectionReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
