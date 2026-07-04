@@ -59,7 +59,7 @@ export default function CtaSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
             <motion.a
-              href="mailto:hello.agrilensservices@gmail.com?subject=Investor Demo Request"
+              href="mailto:hello@agrilens.ai?subject=Investor Demo Request"
               onClick={() => trackHeroCtaClick('Request Investor Demo')}
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -71,7 +71,7 @@ export default function CtaSection() {
               </svg>
             </motion.a>
             <motion.a
-              href="mailto:hello.agrilensservices@gmail.com?subject=Partnership Inquiry"
+              href="mailto:partners@agrilens.ai?subject=Partnership Inquiry"
               onClick={() => trackContactClick('email', 'Partner With Us CTA')}
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}

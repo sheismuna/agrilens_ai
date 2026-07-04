@@ -32,12 +32,11 @@ export default function FounderSection() {
                   <div className="text-brand-text-muted text-sm">Founder, AgriLens AI</div>
                 </div>
                 <div className="flex gap-2 mt-1">
-                  <a href="https://www.linkedin.com/in/maimuna-mohammed-090aa022a" target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold text-brand-green border border-brand-green-mid bg-brand-green-light px-3 py-1 rounded-full hover:bg-brand-green hover:text-white transition-colors">
-                    LinkedIn
-                  </a>
-                  <a href="https://x.com/moo_narh" target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold text-brand-green border border-brand-green-mid bg-brand-green-light px-3 py-1 rounded-full hover:bg-brand-green hover:text-white transition-colors">
-                    X
-                  </a>
+                  {['LinkedIn', 'X'].map((s) => (
+                    <a key={s} href="#" className="text-[10px] font-semibold text-brand-green border border-brand-green-mid bg-brand-green-light px-3 py-1 rounded-full hover:bg-brand-green hover:text-white transition-colors">
+                      {s}
+                    </a>
+                  ))}
                 </div>
               </div>
 
@@ -45,13 +44,10 @@ export default function FounderSection() {
               <div className="md:col-span-3 p-10 flex flex-col justify-center">
                 <div className="text-5xl font-display text-brand-green-mid leading-none mb-4">&ldquo;</div>
                 <p className="font-display text-xl lg:text-2xl text-brand-text leading-snug mb-6 italic">
-                  Building technology that bridges the gap between modern AI and smallholder farmers, helping communities make faster and smarter decisions before diseases affect their harvests.
+                  Building technology that bridges the gap between modern AI and smallholder farmers &mdash; helping communities make faster, smarter decisions before diseases destroy their harvests.
                 </p>
                 <p className="text-brand-text-muted text-sm leading-relaxed mb-6">
-                  AgriLens AI was founded on a simple belief: every farmer deserves access to reliable agricultural support, regardless of literacy level, internet connectivity, or proximity to an extension officer.
-                </p>
-                <p className="text-brand-text-muted text-sm leading-relaxed mb-6">
-                  We are building practical tools that help farmers identify crop diseases earlier, make informed decisions, and protect their yields. Our long-term goal is to make agricultural intelligence more accessible to farming communities across Africa.
+                  AgriLens AI was founded on a simple belief: every farmer deserves the same quality of expert support &mdash; regardless of literacy level, internet connectivity, or proximity to an extension office. We&apos;re building the infrastructure to make that belief real at continental scale.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {['AI / Machine Learning', 'Agricultural Technology', 'Food Security', 'Social Impact'].map((tag) => (

@@ -85,19 +85,19 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 mb-10"
             >
               <a
-                href="#pilot"
+                href="#cta"
                 className="inline-flex items-center gap-2 bg-brand-green text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-brand-deep-green transition-all hover:-translate-y-0.5 shadow-sm hover:shadow-lg text-sm"
               >
-                Apply for Pilot Testing
+                Request Demo
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
               </a>
               <a
-                href="#product"
+                href="#pricing"
                 className="inline-flex items-center gap-2 border border-brand-green text-brand-green font-semibold px-7 py-3.5 rounded-xl hover:bg-brand-green-light transition-all text-sm"
               >
-                See How It Works
+                Partner With Us
               </a>
             </motion.div>
 

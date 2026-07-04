@@ -66,27 +66,6 @@ const insights = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: 'I lost half my maize to NCLB last year because I thought it was just dry season stress. If I had known earlier, I could have saved the whole farm.',
-    name: 'Aliyu Ibrahim',
-    role: 'Smallholder Farmer, Kaduna State',
-    initials: 'AI',
-  },
-  {
-    quote: 'The extension officer comes once a month if we\'re lucky. By the time he arrives, the disease has spread to the whole field. I need help when I need it, not when he has time.',
-    name: 'Fatima Kwara',
-    role: 'Cooperative Farmer, Niger State',
-    initials: 'FK',
-  },
-  {
-    quote: 'I bought the wrong chemical twice. The shopkeeper did not know what disease it was either. If I had something that could just tell me the right answer, it would change everything for us.',
-    name: 'Emmanuel Okafor',
-    role: 'Maize Farmer, Benue State',
-    initials: 'EO',
-  },
-];
-
 function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
@@ -133,7 +112,7 @@ export default function BuiltWithFarmersSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
           <SectionReveal>
             <div className="text-xs font-bold uppercase tracking-widest text-brand-green mb-3">
-              Discovery Research
+              Research Foundation
             </div>
             <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-brand-text leading-tight mb-5">
               Built <span className="text-brand-green">With</span> Farmers,<br />
@@ -201,34 +180,6 @@ export default function BuiltWithFarmersSection() {
             </div>
           </div>
         </SectionReveal>
-
-        {/* Testimonials */}
-        <SectionReveal className="mt-16 mb-6">
-          <div className="text-center">
-            <h3 className="font-display font-bold text-2xl text-brand-text mb-1">What Farmers Told Us</h3>
-            <p className="text-brand-text-muted text-sm">Representative quotes from product discovery interviews</p>
-          </div>
-        </SectionReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <SectionReveal key={t.name} delay={i * 0.1}>
-              <div className="bg-white border border-brand-border border-l-4 border-l-brand-green rounded-2xl p-6 hover:shadow-card-hover transition-all h-full flex flex-col">
-                <div className="text-4xl font-display text-brand-green-mid leading-none mb-3">&ldquo;</div>
-                <p className="text-brand-text text-sm leading-relaxed italic flex-1 mb-5">{t.quote}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-brand-green-light flex items-center justify-center flex-shrink-0 font-bold text-brand-green text-xs">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-brand-text">{t.name}</div>
-                    <div className="text-xs text-brand-text-muted">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            </SectionReveal>
-          ))}
-        </div>
       </div>
     </section>
   );
