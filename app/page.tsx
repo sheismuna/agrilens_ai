@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
+import StageSection from '@/components/sections/StageSection';
 import ProblemSection from '@/components/sections/ProblemSection';
 import MaizeMattersSection from '@/components/sections/MaizeMattersSection';
 import ProductSection from '@/components/sections/ProductSection';
@@ -24,6 +25,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <StageSection />
         <ProblemSection />
         <MaizeMattersSection />
         <ProductSection />

@@ -13,7 +13,7 @@ const screens = [
       <div className="scan-line" />
       <span className="text-3xl">🌽</span>
       <span className="text-xs text-brand-text-muted font-medium">Point camera at maize leaf</span>
-      <span className="text-[10px] text-gray-400">Works offline · No special lighting needed</span>
+      <span className="text-[10px] text-gray-400">Offline mode coming soon · No special lighting needed</span>
     </div>
     <div className="flex gap-2">
       <div className="flex-1 bg-brand-green text-white text-xs font-semibold py-2 rounded-xl text-center">📷 Camera</div>
@@ -37,7 +37,7 @@ const screens = [
       </div>
       <div className="flex justify-between">
         <span className="text-[10px] text-brand-text-muted">Severity: Moderate</span>
-        <span className="text-[10px] text-brand-green font-semibold">94.2% confidence</span>
+        <span className="text-[10px] text-brand-green font-semibold">91–97% accuracy (test set)</span>
       </div>
     </div>
   </div>,
@@ -146,7 +146,7 @@ export default function PhoneMockup({ activeTab = 0, variant = 'hero' }: PhoneMo
               <span className="text-[10px] text-white">✓</span>
             </div>
             <div>
-              <div className="text-[10px] font-bold text-brand-text">94.2% Confident</div>
+              <div className="text-[10px] font-bold text-brand-text">91–97% Accuracy</div>
               <div className="text-[9px] text-brand-green font-semibold">Treatment ready</div>
             </div>
           </motion.div>

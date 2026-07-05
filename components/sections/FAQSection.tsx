@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: 'How does AgriLens AI work?',
-    a: 'Farmers upload a clear image of a maize leaf using the in-app camera or phone gallery. AgriLens AI analyzes the image using a machine learning model trained on African maize disease data. Within seconds, it returns a disease diagnosis, severity assessment, and localized treatment recommendations. Voice readout is available in English, Hausa, Yoruba, and Igbo.',
+    a: 'Farmers upload a clear image of a maize leaf using the in-app camera or phone gallery. AgriLens AI analyzes the image using a machine learning model trained on African maize disease data. Within seconds, it returns a disease diagnosis, severity assessment, and localized treatment recommendations. Text-based disease guidance is available in English, Hausa, Yoruba, Igbo, and Pidgin English. Voice playback (text-to-speech) is currently available for English and Pidgin English, with additional voice languages rolling out in upcoming releases.',
   },
   {
     q: 'Which maize diseases can AgriLens AI detect?',
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: 'Does it work without internet?',
-    a: 'AgriLens AI is built with an offline-first architecture. Core detection and guidance functions work without a mobile data connection, which is essential for farmers in rural areas with limited connectivity. Data syncs automatically when a connection becomes available.',
+    a: 'The current MVP requires an internet connection for disease diagnosis. Offline capability is on our near-term roadmap, since it\'s essential for farmers in rural areas with limited connectivity, pilot farmers will be first to access this feature once it ships.',
   },
 ];
 

@@ -11,7 +11,7 @@ const tabs = [
     icon: '📷',
     title: 'Capture Your Leaf',
     desc: 'Take a photo of any maize leaf using the in-app camera or upload from your gallery. The app works in everyday farm conditions with no special lighting, equipment, or data connection needed.',
-    features: ['In-app camera capture', 'Gallery photo upload', 'Works in low light', 'No internet required to capture'],
+    features: ['In-app camera capture', 'Gallery photo upload', 'Works in low light', 'Offline capability on roadmap'],
   },
   {
     id: 1,
@@ -41,9 +41,9 @@ const tabs = [
     id: 4,
     label: 'Voice Guide',
     icon: '🎙️',
-    title: 'Voice Guidance in Local Languages',
-    desc: 'All recommendations are read aloud in the farmer\'s preferred language. This removes literacy as a barrier to expert guidance and makes the app accessible to every farmer.',
-    features: ['English', 'Hausa', 'Yoruba', 'Igbo (more languages coming 2027)'],
+    title: 'Guidance in Local Languages',
+    desc: 'Text-based disease guidance is available in English, Hausa, Yoruba, Igbo, and Pidgin English. Voice playback (text-to-speech) currently supports English and Pidgin English, with more voice languages rolling out in upcoming releases.',
+    features: ['English (text + voice)', 'Pidgin (text + voice)', 'Hausa (text)', 'Yoruba (text)', 'Igbo (text)'],
   },
   {
     id: 5,

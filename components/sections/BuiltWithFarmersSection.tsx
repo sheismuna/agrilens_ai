@@ -54,11 +54,11 @@ const insights = [
   },
   {
     finding: 'Treatment advice arrives too late to act',
-    impact: 'Shaped the offline-first, instant-response architecture',
+    impact: 'Shaped our roadmap toward offline support and instant-response design',
   },
   {
     finding: 'Literacy and language are real barriers',
-    impact: 'Led to voice guidance in Hausa, Yoruba, Igbo, and English',
+    impact: 'Led to text guidance in Hausa, Yoruba, Igbo, and English, with voice playback rolling out language by language',
   },
   {
     finding: 'Farmers trust specificity over generality',
@@ -66,25 +66,18 @@ const insights = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: 'I lost half my maize to NCLB last year because I thought it was just dry season stress. If I had known earlier, I could have saved the whole farm.',
-    name: 'Aliyu Ibrahim',
-    role: 'Smallholder Farmer, Kaduna State',
-    initials: 'AI',
-  },
-  {
-    quote: 'The extension officer comes once a month if we\'re lucky. By the time he arrives, the disease has spread to the whole field. I need help when I need it, not when he has time.',
-    name: 'Fatima Kwara',
-    role: 'Cooperative Farmer, Niger State',
-    initials: 'FK',
-  },
-  {
-    quote: 'I bought the wrong chemical twice. The shopkeeper did not know what disease it was either. If I had something that could just tell me the right answer, it would change everything for us.',
-    name: 'Emmanuel Okafor',
-    role: 'Maize Farmer, Benue State',
-    initials: 'EO',
-  },
+const problemStats = [
+  { value: 85, suffix: '%', label: 'Have confused one maize disease for another' },
+  { value: 60, suffix: '%', label: 'Applied the wrong chemical due to misidentification' },
+  { value: 60, suffix: '%', label: 'Have no access to an extension officer or agronomist' },
+  { display: '1\u20133+ days', label: 'Typical wait time for advice while disease spreads' },
+];
+
+const opportunityStats = [
+  { value: 85, suffix: '%', label: 'Already own a smartphone' },
+  { value: 95, suffix: '%', label: 'Use WhatsApp daily' },
+  { value: 90, suffix: '%', label: 'Would use a tool that identifies disease from a photo' },
+  { value: 95, suffix: '%+', label: 'Said such a tool would be "very helpful"' },
 ];
 
 function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
@@ -202,33 +195,59 @@ export default function BuiltWithFarmersSection() {
           </div>
         </SectionReveal>
 
-        {/* Testimonials */}
-        <SectionReveal className="mt-16 mb-6">
+        {/* Our Research: What Farmers Told Us */}
+        <SectionReveal className="mt-16 mb-8">
           <div className="text-center">
-            <h3 className="font-display font-bold text-2xl text-brand-text mb-1">What Farmers Told Us</h3>
-            <p className="text-brand-text-muted text-sm">Representative quotes from product discovery interviews</p>
+            <div className="text-xs font-bold uppercase tracking-widest text-brand-green mb-2">Our Research</div>
+            <h3 className="font-display font-bold text-2xl sm:text-3xl text-brand-text mb-2">What Farmers Told Us</h3>
+            <p className="text-brand-text-muted text-sm max-w-2xl mx-auto">
+              We surveyed 20+ maize farmers across Nigeria (Kaduna, Kano, Taraba, Adamawa, Gombe, Benue, and other states) via Google Forms to understand the problem space.
+            </p>
           </div>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <SectionReveal key={t.name} delay={i * 0.1}>
-              <div className="bg-white border border-brand-border border-l-4 border-l-brand-green rounded-2xl p-6 hover:shadow-card-hover transition-all h-full flex flex-col">
-                <div className="text-4xl font-display text-brand-green-mid leading-none mb-3">&ldquo;</div>
-                <p className="text-brand-text text-sm leading-relaxed italic flex-1 mb-5">{t.quote}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-brand-green-light flex items-center justify-center flex-shrink-0 font-bold text-brand-green text-xs">
-                    {t.initials}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <SectionReveal delay={0.1}>
+            <div className="bg-white border border-brand-border rounded-2xl p-7 h-full">
+              <div className="text-xs font-bold uppercase tracking-widest text-red-500 mb-5">The Core Problem</div>
+              <div className="grid grid-cols-2 gap-5">
+                {problemStats.map((s) => (
+                  <div key={s.label}>
+                    <div className="font-display font-black text-3xl text-brand-text mb-1">
+                      {'value' in s ? <AnimatedCounter value={s.value as number} suffix={s.suffix} /> : s.display}
+                    </div>
+                    <p className="text-brand-text-muted text-xs leading-relaxed">{s.label}</p>
                   </div>
-                  <div>
-                    <div className="text-sm font-semibold text-brand-text">{t.name}</div>
-                    <div className="text-xs text-brand-text-muted">{t.role}</div>
-                  </div>
-                </div>
+                ))}
               </div>
-            </SectionReveal>
-          ))}
+            </div>
+          </SectionReveal>
+
+          <SectionReveal delay={0.2}>
+            <div className="bg-white border border-brand-border rounded-2xl p-7 h-full">
+              <div className="text-xs font-bold uppercase tracking-widest text-brand-green mb-5">The Opportunity</div>
+              <div className="grid grid-cols-2 gap-5">
+                {opportunityStats.map((s) => (
+                  <div key={s.label}>
+                    <div className="font-display font-black text-3xl text-brand-green mb-1">
+                      <AnimatedCounter value={s.value} suffix={s.suffix} />
+                    </div>
+                    <p className="text-brand-text-muted text-xs leading-relaxed">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
         </div>
+
+        <SectionReveal delay={0.3}>
+          <div className="bg-brand-deep-green rounded-2xl p-6 sm:p-7 text-center">
+            <div className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-2">What Farmers Want Most</div>
+            <p className="text-white text-base sm:text-lg font-medium">
+              &ldquo;Knowing the disease and the right treatment&rdquo; {'\u2014'} with step-by-step application instructions.
+            </p>
+          </div>
+        </SectionReveal>
       </div>
     </section>
   );
