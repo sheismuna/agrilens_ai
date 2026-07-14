@@ -63,9 +63,6 @@ export default function DiseasesSection() {
           <p className="text-brand-text-muted leading-relaxed">
             Trained on African disease datasets. More diseases and crops added with every update.
           </p>
-          <p className="text-brand-text-muted text-xs mt-3">
-            Current version achieves 91–97% accuracy on validation test sets for these classes. Real-world performance with farmer-submitted photos is being tested in our pilot cohort.
-          </p>
         </SectionReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

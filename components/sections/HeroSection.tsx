@@ -1,17 +1,32 @@
 'use client';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import PhoneMockup from '@/components/ui/PhoneMockup';
 import { trackHeroCtaClick } from '@/lib/analytics';
 
 const trustItems = [
   'Built for African Farmers',
   'Local Language Support',
   'Voice Guidance',
-  'Offline Mode Coming Soon',
+  'Offline-First Design',
   'Smartphone Friendly',
 ];
 
+const videoTrustItems = [
+  'Field Tested in Nigeria',
+  'Real Farmers',
+  'Real Maize Disease Samples',
+];
+
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.play();
+  };
+
   return (
     <section
       id="hero"
@@ -121,14 +136,67 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right: Phone */}
+          {/* Right: Field validation video */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
+            className="w-full"
           >
-            <PhoneMockup activeTab={0} variant="hero" />
+            {/* Field Validated badge */}
+            <div className="inline-flex items-center gap-2 bg-brand-green-light border border-brand-green-mid text-brand-deep-green rounded-full px-3.5 py-1.5 text-[11px] font-bold tracking-widest uppercase mb-4">
+              <span className="w-1.5 h-1.5 bg-brand-green rounded-full flex-shrink-0" aria-hidden="true" />
+              Field Validated
+            </div>
+
+            {/* Video player */}
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 bg-brand-text">
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                poster="/images/field-demo-poster.jpg"
+                controls
+                playsInline
+                preload="none"
+                aria-label="AgriLens AI field demonstration video: real-time maize disease detection tested with farmers in Nigeria"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
+              >
+                <source src="/videos/agrilens-field-demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              {/* Large play button overlay (hidden once playing) */}
+              {!isPlaying && (
+                <button
+                  type="button"
+                  onClick={handlePlayClick}
+                  aria-label="Play field demonstration video"
+                  className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70"
+                >
+                  <span className="flex items-center justify-center w-20 h-20 rounded-full bg-white/95 shadow-xl group-hover:scale-105 transition-transform">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#1B5E20" aria-hidden="true" className="ml-1">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </button>
+              )}
+            </div>
+
+            {/* Trust indicators below video */}
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4">
+              {videoTrustItems.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <div className="w-[18px] h-[18px] bg-brand-green rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+                      <polyline points="1.5,5 4,7.5 8.5,2.5" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-brand-text-muted">{item}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

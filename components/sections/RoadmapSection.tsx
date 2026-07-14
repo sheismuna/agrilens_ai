@@ -10,7 +10,7 @@ const milestones = [
     status: 'current',
     desc: 'Launch AI disease detection for maize. Pilot with farmer cooperatives across Northern and Middle Belt Nigeria.',
     crops: ['🌽 Maize'],
-    details: ['4 disease classes', 'Text in 5 languages, voice in 2', 'Offline mode (in development)', 'Institutional dashboard'],
+    details: ['4 disease classes', 'Voice in 4 languages', 'Offline-first', 'Institutional dashboard'],
   },
   {
     year: '2027',

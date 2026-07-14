@@ -11,8 +11,8 @@ const features = [
   {
     icon: '🎙️',
     title: 'Text-to-Speech Voice Guidance',
-    desc: 'Text-based disease guidance is available in English, Hausa, Yoruba, Igbo, and Pidgin English. Voice playback (text-to-speech) is currently available for English and Pidgin English, with additional voice languages rolling out in upcoming releases.',
-    tags: ['Hands-free', 'Expanding languages', 'Clear instructions'],
+    desc: 'Every recommendation is read aloud at the tap of a button. Farmers with low literacy get the same quality of expert advice as anyone else.',
+    tags: ['Hands-free', 'Offline audio', 'Clear instructions'],
   },
   {
     icon: '📈',
@@ -34,9 +34,9 @@ const features = [
   },
   {
     icon: '📡',
-    title: 'Network Resilience — In Development',
-    desc: 'The current version requires an internet connection for disease diagnosis. Offline capability is on our near-term roadmap, essential for the millions of African farmers in rural areas with limited connectivity.',
-    tags: ['Rural-ready', 'On roadmap', 'Pilot farmers first'],
+    title: 'Offline-First Architecture',
+    desc: 'Core detection and guidance functions work without a mobile data connection. This is essential for the millions of African farmers in rural areas with limited connectivity.',
+    tags: ['Rural-ready', 'No data needed', 'Sync when online'],
   },
 ];
 

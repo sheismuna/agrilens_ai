@@ -6,7 +6,7 @@ const rows = [
   { feature: 'Disease Dataset',       others: 'Generic global datasets',              agrilens: 'African disease-focused training data' },
   { feature: 'Language Support',      others: 'English only',                          agrilens: 'Hausa, Yoruba, Igbo + voice readout' },
   { feature: 'Treatment Guidance',    others: 'General recommendations',               agrilens: 'Localized, actionable, product-specific' },
-  { feature: 'Offline Usage',         others: 'Requires internet connection',          agrilens: 'Current MVP requires internet; offline mode is on our near-term roadmap' },
+  { feature: 'Offline Usage',         others: 'Requires internet connection',          agrilens: 'Offline-first. Works in rural areas with no data connection' },
   { feature: 'Disease Tracking',      others: null,                                    agrilens: 'Track progress across multiple scans' },
   { feature: 'Severity Assessment',   others: 'Basic or none',                         agrilens: 'Mild / Moderate / Severe grading' },
   { feature: 'Personalized Advice',   others: 'One-size-fits-all',                     agrilens: 'Adapted to your farm, location & stage' },

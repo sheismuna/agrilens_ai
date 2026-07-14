@@ -1,6 +1,5 @@
 'use client';
 import SectionReveal from '@/components/ui/SectionReveal';
-
 export default function StageSection() {
   return (
     <section id="stage" className="bg-brand-green-light border-y border-brand-green/20 py-6">
