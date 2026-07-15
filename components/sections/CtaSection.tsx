@@ -85,7 +85,6 @@ export default function CtaSection() {
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
             {[
               'Built for African Farmers',
-              'Investor Ready',
               'NGO & Government Partner',
               'See Early. Act Early. Grow More.',
             ].map((item) => (

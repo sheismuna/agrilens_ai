@@ -7,7 +7,7 @@ const trustItems = [
   'Built for African Farmers',
   'Local Language Support',
   'Voice Guidance',
-  'Offline-First Design',
+  'Offline Mode Coming Soon',
   'Smartphone Friendly',
 ];
 
