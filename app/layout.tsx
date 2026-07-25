@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import GoogleAnalytics from '@/components/ui/GoogleAnalytics';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://agrilensai.com'),
   title: 'AgriLens AI: See Early. Act Early. Grow More.',
   description:
     'AgriLens AI helps maize farmers across Africa identify crop diseases early, receive localized treatment guidance, and protect their harvests using a simple smartphone photo.',
@@ -19,16 +20,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://agrilens.ai',
+    url: 'https://agrilensai.com',
     siteName: 'AgriLens AI',
     title: 'AgriLens AI: See Early. Act Early. Grow More.',
     description:
       'AI-powered crop disease detection for African maize farmers.',
+    images: [
+      {
+        url: '/images/field-demo-poster.jpg',
+        width: 1024,
+        height: 576,
+        alt: 'AgriLens AI field validation in a Nigerian maize farm',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@AgrilensAI',
+    creator: '@AgrilensAI',
     title: 'AgriLens AI: See Early. Act Early. Grow More.',
     description: 'AI-powered crop disease detection for African farmers.',
+    images: ['/images/field-demo-poster.jpg'],
   },
   robots: { index: true, follow: true },
 };

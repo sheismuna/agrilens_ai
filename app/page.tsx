@@ -17,6 +17,7 @@ import RoadmapSection from '@/components/sections/RoadmapSection';
 import BusinessModelSection from '@/components/sections/BusinessModelSection';
 import VisionSection from '@/components/sections/VisionSection';
 import CtaSection from '@/components/sections/CtaSection';
+import SocialSection from '@/components/sections/SocialSection';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export default function Home() {
@@ -42,6 +43,7 @@ export default function Home() {
         <VisionSection />
         <CtaSection />
       </main>
+      <SocialSection />
       <Footer />
       <WhatsAppButton />
     </>
